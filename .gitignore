@@ -77,6 +77,6 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 venv/
+.idea
 db.sqlite3
-.idea/
 __pycache__/
