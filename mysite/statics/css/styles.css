@@ -1,0 +1,140 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,700,500);
+/*
+Author: webthemez.com
+Author URL: http://webthemez.com
+*/
+/*************************
+*******Typography******
+**************************/
+body {
+  padding-top: 100px;
+  background: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  color: #282828;
+  line-height: 26px;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  font-family: 'Raleway', sans-serif;
+}
+
+a:hover, hr {
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #fff;
+}
+.section-header {
+  margin-bottom: 50px;
+}
+.section-header p{
+text-align:center;
+}
+.section-header .section-title {
+  font-size: 44px;
+  color: #F9690E;
+  position: relative;
+  padding-bottom: 20px;
+  margin: 0 0 20px;  
+  display: block;
+  text-align: center;
+}
+.section-header .section-title:before {
+  position: absolute;
+  width: 140px;
+  bottom: -5px;
+  right: 0;
+  width: 30px;
+  background: rgb(249, 105, 14);
+  border-radius: 50%;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  height: 10px;
+}
+
+/*************************
+*******Header******
+**************************/
+#main-nav.navbar-default {
+background: #FFFFFF;
+}
+#main-nav.navbar-default .navbar-nav > li.active > a, #main-nav.navbar-default .navbar-nav > li.open > a, #main-nav.navbar-default .navbar-nav > li:hover > a {
+background: rgb(249, 105, 14);
+color: #FFFFFF;
+}
+.navbar.navbar-default {
+  border: 0;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+.navbar.navbar-default .navbar-toggle {
+  margin-top: 32px;
+}
+.navbar.navbar-default .navbar-brand {
+  height: auto;
+  padding: 10px 15px 1px;
+}
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus{
+color: #F8680D;
+ 
+background: transparent;
+}
+.navbar-default .navbar-nav>li>a{
+color: #020202;
+} 
+#main-nav.navbar-default {
+background: #FFF;
+}
+@media only screen and (min-width: 768px) {
+  #main-nav.navbar-default { 
+    -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.26);
+  }
+  #main-nav.navbar-default .navbar-nav > li > a {
+    padding-top: 30px;
+    padding-bottom: 24px;
+    border-bottom: 4px solid transparent;
+}
+
+  #main-nav.navbar-default .navbar-nav > li.active > a,
+  #main-nav.navbar-default .navbar-nav > li.open > a,
+  #main-nav.navbar-default .navbar-nav > li:hover > a {
+    background: transparent; 
+    color: #F9690E;
+}
+
+/*Team*/ 
+#our-team {
+  padding: 100px 0;
+}
+
+/***********************
+********* Footer ******
+************************/
+#footer {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: #fff;
+  background: #222222;
+}
+#footer a {
+  color: #fff;
+}
+#footer a:hover {
+  color: #F9690E;
+}
+
+.image {
+  width: 300px;
+  height: 300px;
+}
+
+
+}

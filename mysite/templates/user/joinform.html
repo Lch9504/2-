@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/53a8c415f1.js" crossorigin="anonymous"></script>
+                <!-- Bootstrap CSS -->
+                <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+                <!-- Style -->
+	<link href="/assets/css/login.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/css/join.css">
+    <link rel="stylesheet" href="/assets/css/header.css">
+</head>
+<body>
+
+    <header id="header">
+        <nav id="main-nav" class="navbar navbar-default navbar-fixed-top" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/"><img src="/assets/images/logo.png" alt="logo"></a>
+                </div>
+    </header><!--/header-->
+</html>
+{% block csslink %}
+<link href="/assets/css/user.css" rel="stylesheet" type="text/css">
+<link href="/assets/css/join.css" rel="stylesheet" type="text/css">
+<script src ="/assets/js/jquery/jquery-1.9.0.js"></script>
+<script>
+	/* 중복체크! */
+	 $ (function() {
+	 	$('#id').change(function () {
+			$('#img-email').hide();
+			$('#btn-id').show();
+	 	});
+
+	 	$('#btn-id').click(function () {
+	 		var id = $('#id').val()
+	 		if (id == '') {
+				alert('아이디를 입력해주세요.')
+	 			return;
+	 		}
+	 		$.ajax({
+	 			url: '/user/api/checkID?id='+id,
+	 			type: 'get',
+	 			dataType: 'json',
+	 			success: function (response) {
+	 				if (response.result != 'success') {
+	 					console.error(response.data)
+	 					return;
+	 				}
+	 				if (response.data == 'exist') {
+	 					alert("이미 존재하는 아이디 입니다");
+	 					$('#id').val('').focus();
+	 					return;
+	 				} else {
+	 					$('#img-email').show();
+	 					$('#btn-id').hide();
+	 					$("#join-submit").attr("id_check_result", "success");
+	 					return;
+	 				}
+	 			},
+	 			error: function (xhr, error) {
+	 				alert("서버와 통신에 문제가 발생했습니다.");
+	 				console.error("error : " + error);
+	 			}
+	 		})
+	 	});
+
+	 	$('#join-form').submit(function () {
+	 		if ($("#join-submit").attr("id_check_result") == "fail") {
+	 			alert("id 중복체크를 해주시기 바랍니다.");
+	 			$("#id").focus();
+	 			return false;
+	 		}
+	 	});
+
+	 	$("#id").on("propertychange change keyup paste input", function () {
+	 		$('#img-email').hide();
+	 		$('#btn-id').show();
+	 		$("#join-submit").attr("id_check_result", "fail");
+	 	});
+	 });
+
+	 /* 비밀번호 제한*/
+	  function check_pw(){
+
+                var pw = document.getElementById('signup-pww').value;
+                var SC = ["!","@","#","$","%"];
+                var check_SC = 0;
+
+
+                if(pw.length < 6 || pw.length > 10){
+
+                	document.getElementById('check1').innerHTML='비밀번호는 6글자 이상, 10글자 이하만 이용 가능합니다.';
+
+                    document.getElementById('signup-pww').value='red';
+                }else{
+					document.getElementById('check1').innerHTML='';
+
+
+				}
+                for(var i=0;i<SC.length;i++){
+                    if(pw.indexOf(SC[i]) != -1){
+                        check_SC = 1;
+                    }
+                }
+                if(check_SC == 0){
+                	document.getElementById('check1').innerHTML="!,@,#,$,% 의 특수문자가 들어가 있지 않습니다.";
+                    document.getElementById('check1').style.color="red";
+                    document.getElementById('signup-pww').value="";
+                }
+                if(document.getElementById('signup-pww').value !=" document.getElementById('signup-pww2').value!="){
+                    if(document.getElementById('signup-pww').value==document.getElementById('signup-pww2').value){
+                        document.getElementById('check').innerHTML='비밀번호가 일치합니다.'
+                        document.getElementById('check').style.color="blue";
+                    }
+                    else if(document.getElementById('signup-pww').value!=document.getElementById('signup-pww2').value){
+                        document.getElementById('check').innerHTML="비밀번호가 일치하지 않습니다.";
+                        document.getElementById('check').style.color="red";
+                    }else{
+						  document.getElementById('check').innerHTML="";
+					}
+                }
+                }
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="wrap wd668">
+	<div class="container">
+		<div class="form_txtInput">
+        <h2 class="sub_tit_txt">회원가입</h2>
+			<div class="join_form">
+ 		<table>
+            <colgroup>
+              <col width="30%"/>
+              <col width="auto"/>
+            </colgroup>
+		<tbody>
+
+	<form id="join-form" name="joinForm" method="post" action="/user/join">
+		{% csrf_token %}
+		<tr>
+		<th>아이디</th>
+		<td><input id="id" name="id" type="text" value="" placeholder="아이디" >
+			<img id="img-email" src="/assets/images/check.png" style="display:none;"></td>
+		<td><input id="btn-id" type="button" value="ID 중복체크"></td>
+		</tr>
+
+		<tr>
+		<th>비밀번호</th>
+			<td><input id = "signup-pww" name="password" type="password" placeholder="!,@,#,$,% 특수문자 포함" value="" onchange="check_pw()"></td>
+			<td><span id="check1"></span></td>
+		</tr>
+
+		<tr>
+			<th>비밀번호 확인</th>
+			<td><input id = "signup-pww2" name="password" type="password" placeholder="비밀번호를 확인하세요" onchange="check_pw()"></td>
+			<td><span id="check"></span></td>
+		</tr>
+
+
+		<tr>
+		<th>이름</th>
+		<td><input id="name" name="name" type="text" value=""></td>
+		 <tr>
+
+		<tr>
+			<th>성별</th>
+			<td>
+			<select name='gender'>
+				<option value='' selected>-- 선택 --</option>
+				<option value='female'>여자</option>
+				<option value='male'>남자</option>
+			</select>
+			</td>
+		</tr>
+
+		<tr>
+			<th>휴대폰 번호</th>
+			<td><input id="phone_num" name="phone_num" type="text" value=""></td>
+		</tr>
+			</tbody>
+
+		</table>
+
+
+		<div class="submit">
+		<input type="submit"  id = "join-submit" id_check_result="fail"  value="가입하기">
+		</div>
+	</form>
+</div>
+</div>
+</div>
+</div>
+</body>
+{% endblock%}
