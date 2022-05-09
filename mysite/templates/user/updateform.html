@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	{% load static %}
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
+	<title>감정분석 기반 나만의 음악 추천, hey-korean</title>
+
+	<!-- css -->
+	<link href="/assets/css/base.min.css" rel="stylesheet">
+
+	<!-- css for doc -->
+	<link href="/assets/css/project.min.css" rel="stylesheet">
+	<link href="/assets/css/user.css" rel="stylesheet" type="text/css">
+	<!-- favicon -->
+	<!-- ... -->
+</head>
+
+{% if request.GET.result == 'success' %}
+<script>
+	alert('정보 수정이 완료되었습니다.')
+
+</script>
+
+<header class="header header-transparent header-waterfall">
+		<ul class="nav nav-list pull-left">
+			<li>
+				<a data-toggle="menu" href="#doc_menu">
+					<span class="icon icon-lg">menu</span>
+				</a>
+			</li>
+		</ul>
+		<a class="header-logo margin-left-no" href="index.html">hey-korean</a>
+		<ul class="nav nav-list pull-right">
+			<li class="dropdown margin-right">
+				<a class="dropdown-toggle padding-left-no padding-right-no" data-toggle="dropdown">
+					<span class="access-hide">John Smith</span>
+					<!-- 로그인 정보 아이콘 -->
+					<span class="avatar avatar-sm"><img alt="alt text for John Smith avatar" src="/assets/images/users/avatar-001.jpg"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li>
+						<a class="padding-right-lg waves-attach" href="#"><span class="icon icon-lg margin-right">account_box</span>내 정보</a>
+					</li>
+					<li>
+						<a class="padding-right-lg waves-attach" href="#"><span class="icon icon-lg margin-right">add_to_photos</span>음악추가하기</a>
+					</li>
+					<li>
+						<a class="padding-right-lg waves-attach" href="#"><span class="icon icon-lg margin-right">exit_to_app</span>Logout</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</header>
+{% endif %}
+<div id="user">
+	<form id="join-form" name="joinForm" method="post" action="{% url 'user:update' %}">
+		{% csrf_token %}
+		<label class="block-label" for="name">이름</label>
+		<input id="name" name="name" type="text" value="{{ user.name }}">
+
+		<label class="block-label" for="phone_num">전화번호</label>
+		<input id="phone_num" name="phone_num" type="text" value="{{ user.phone_num }}">
+		<input type="button" value="">
+
+		<label class="block-label">비밀번호</label>
+		<input name="password" type="password" value="">
+
+		<fieldset>
+			<legend>성별</legend>
+			{% if user.gender == 'female' %}
+				<label>여</label> <input type="radio" name="gender" value="female" checked="checked">
+				<label>남</label> <input type="radio" name="gender" value="male">
+			{% else %}
+				<label>여</label> <input type="radio" name="gender" value="female">
+				<label>남</label> <input type="radio" name="gender" value="male" checked="checked">
+			{% endif %}
+		</fieldset>
+
+
+		<input type="submit" value="수정하기">
+
+	</form>
+</div>
+

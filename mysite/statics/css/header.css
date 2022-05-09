@@ -1,0 +1,113 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,700,500);
+/*
+Author: webthemez.com
+Author URL: http://webthemez.com
+*/
+
+
+/***********************
+********* Header ******
+************************/
+
+body {
+  padding-top: 0px;
+  background: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  color: #282828;
+  line-height: 26px;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  font-family: 'Raleway', sans-serif;
+}
+
+.section-header {
+  margin-bottom: 50px;
+}
+.section-header p{
+text-align:center;
+}
+
+.section-header .section-title {
+  font-size: 44px;
+  color: #F9690E;
+  position: relative;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 20 0 20px 0px;  
+  display: block;
+  text-align: center;
+}
+
+.section-header .section-title:before {
+  position: absolute;
+  width: 140px;
+  bottom: -5px;
+  right: 0;
+  width: 30px;
+  background: rgb(249, 105, 14);
+  border-radius: 50%;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  height: 10px;
+}
+
+#main-nav.navbar-default {
+background: #FFFFFF;
+}
+
+#main-nav.navbar-default .navbar-nav > li.active > a, #main-nav.navbar-default .navbar-nav > li.open > a, #main-nav.navbar-default .navbar-nav > li:hover > a {
+background: rgb(249, 105, 14);
+color: #FFFFFF;
+}
+
+.navbar.navbar-default .navbar-toggle {
+  margin-top: 32px;
+}
+.navbar.navbar-default .navbar-brand {
+  height: auto;
+  padding: 10px 15px 1px;
+}
+
+  #main-nav.navbar-default .navbar-nav > li > a {
+    padding-top: 30px;
+    padding-bottom: 24px;
+    border-bottom: 4px solid transparent;
+}
+
+  #main-nav.navbar-default .navbar-nav > li.active > a,
+  #main-nav.navbar-default .navbar-nav > li.open > a,
+  #main-nav.navbar-default .navbar-nav > li:hover > a {
+    background: transparent; 
+    color: #F9690E;
+}
+
+/***********************
+********* Footer ******
+************************/
+#footer {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: #fff;
+  background: #222222;
+}
+#footer a {
+  color: #fff;
+}
+#footer a:hover {
+  color: #F9690E;
+}
+
+.image {
+  width: 300px;
+  height: 300px;
+}

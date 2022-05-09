@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table-contents" style ="padding:10px">
+    <tr>
+        <th> 제목 </th>
+        <th> 제목 </th>
+    </tr>
+    {% for post in posts %}
+        <tr>
+            <td>{{post.id}}</td>
+            <td>{{post.sex}}</td>
+            <td>{{post.name}}</td>
+            <td>{{post.age}}</td>
+            <td>{{post.phone_num}}</td>
+        </tr>
+    {%endfor%}}
+</table>
+
+</body>
+</html>

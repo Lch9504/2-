@@ -1,0 +1,40 @@
+    <div class="wrap_join">
+        <div class="user_join">
+            <form method = "POST" action="">
+                {% csrf_token %}
+                <div class="join_id">
+                    <h4>
+                    <label for="id">ID</label>
+                    </h4>
+                    <input placeholder="아이디를 입력하세요" autofocus type="text" id="id">
+                </div>
+                <div class="join_pw">
+                    <label for="password1"><h4>비밀번호</h4></label>
+                    <input type="password" id="password1" placeholder="비밀번호">
+                </div>
+                <div class="join_pw">
+                    <label for="password2"><h4>비밀번호 확인</h4></label>
+                    <input type="password" id="password2" placeholder="비밀번호 동일하게 입력하세요">
+                </div>
+                <div class ="join_name">
+                    <label for="name"><h4>이름</h4></label>
+                    <input placeholder="이름을 입력하세요" autofocus type="text" id="name">
+                </div>
+                <div class="join_tel">
+                    <label for="tel"><h4>전화번호</h4></label>
+                    <input placeholder="전화번호를 입력하세요" autofocus type="text" id="tel">
+                </div>
+                <div class = "join_gender">
+                    <label for="gender"><h4>성별</h4></label>
+                    <select id="gender">
+                        <option value selected>성별</option>
+                        <option value="male">남성</option>
+                        <option value="female">여성</option>
+                    </select>
+                </div>
+                <div class="submit">
+                    <input type="submit" value="회원가입">
+                </div>
+            </form>
+            </div>
+    </div>

@@ -1,0 +1,132 @@
+*{
+  list-style: none;
+}
+
+/***********************
+********* 모달창 ******
+************************/
+
+#my_modal {
+    display: none;
+    width: 800px;
+    height: 300;
+    padding: 20px;
+    background-color: #fefefe;
+    border: 1px solid #888;
+    border-radius: 10px;
+}
+
+#my_modal .modal_close_btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/***********************
+********* 모달버튼 ******
+************************/
+
+p {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  text-align: center;
+  font-size: 18px;
+  color: #676767;
+}
+.frame {
+  width: 90%;
+  margin: 40px auto;
+  text-align: center;
+}
+button {
+  margin: 20px;
+  text-align: center;
+}
+.custom-btn {
+  width: 200px;
+  height: 50px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+#popup_open_btn {
+  width: 100px;
+  height: 40px;
+  line-height: 30px;
+  padding: 0;
+  border-radius: 10px;
+  position: relative;
+  background-color: #f9680e8d;
+}
+
+#popup_open_btn:hover {
+  color: rgb(249, 105, 14);
+  background: transparent;
+   box-shadow:none;
+}
+
+/***********************
+********* 노래매칭 ******
+************************/
+
+
+.matching-song{
+	margin: 0 auto; /* auto 알아서 중앙으로 맞춰줌 */
+	padding: 20px 0 20px 0; 
+	width: 1250px;
+	height: 500px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+
+.modal_btn{
+  align-items: center;
+  /*display: flex;*/
+  justify-content: center;
+}
+
+img {
+  border-radius: 50px;
+}
+
+table {
+  border-spacing: 30px;
+  text-align: center;
+}
+
+th, td {
+	padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    }
+
+table .list-wrap{
+  border-spacing: 10px;
+  text-align: center;
+}
+
+.list-head, .check, .rank, .title, .singer{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  }
+
+/***********************
+****** 차트 + list ******
+************************/

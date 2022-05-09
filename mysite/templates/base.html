@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>hey Korean!</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+{% block csslink %}
+{% endblock %}
+
+</head>
+<body>
+	<div id="container">
+		<div id="header">
+			<h1>Hey Korean!</h1>
+			<ul>
+				{% if request.session.authUser is None %}
+				<li><a href="/user/loginform">로그인</a><li>
+				<li><a href="/user/joinform">회원가입</a><li>
+				{% else %}
+				<li><a href="/user/updateform">회원정보수정</a><li>
+				<li><a href="/user/logout">로그아웃</a><li>
+				<li>{{request.session.authUser.name}}님 반갑습니다!</li>
+				{% endif %}
+			</ul>
+		</div>
+		<div id="wrapper">
+			<div id="content">
+
+				{% block content %} {% endblock %}
+
+			</div>
+		</div>
+		<div id="navigation">
+			<ul>
+				<li><a href="">메인</a></li>
+				<li><a href="">마이페이지</a></li>
+
+			</ul>
+		</div>
+		<div id="footer">
+			<p>(c)opyright 2022 Heykorean!</p>
+		</div>
+	</div>
+</body>
+</html>
